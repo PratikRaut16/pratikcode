@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Couple Holding Hands with Names</title>
+  <!-- Google Font: Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      background: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .scene {
+      position: relative;
+      width: 350px;
+      height: 400px;
+    }
+
+    .name {
+      position: absolute;
+      color: #fff;
+      font-size: 18px;
+      opacity: 0;
+      animation: fadeInSlide 2s ease forwards, glowText 1.5s ease-in-out infinite alternate;
+      text-shadow: 0 0 5px #ff4081, 0 0 10px #ff4081;
+    }
+
+    .name.anuja {
+      left: 40px;
+      top: 10px;
+      animation-delay: 0.5s;
+    }
+
+    .name.pratik {
+      right: 40px;
+      top: 10px;
+      animation-delay: 0.5s;
+    }
+
+    @keyframes fadeInSlide {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes glowText {
+      from {
+        text-shadow: 0 0 5px #ff4081, 0 0 10px #ff4081;
+      }
+      to {
+        text-shadow: 0 0 15px #ff4081, 0 0 30px #ff4081;
+      }
+    }
+
+    .person {
+      width: 50px;
+      height: 120px;
+      background: white;
+      border-radius: 30px;
+      position: absolute;
+      bottom: 60px;
+    }
+
+    .person::before {
+      content: "";
+      width: 30px;
+      height: 30px;
+      background: white;
+      border-radius: 50%;
+      position: absolute;
+      top: -40px;
+      left: 10px;
+    }
+
+    .person::after {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 40px;
+      background: white;
+      bottom: -40px;
+      left: 10px;
+      border-radius: 10px;
+    }
+
+    .boy {
+      right: 50px;
+    }
+
+    .girl {
+      left: 50px;
+    }
+
+    .arm {
+      position: absolute;
+      width: 40px;
+      height: 10px;
+      background: white;
+      top: 70px;
+      border-radius: 10px;
+      transition: transform 2s ease-in-out;
+    }
+
+    .boy .arm {
+      right: 50px;
+      transform: translateX(0);
+      animation: boyArmMove 2s forwards;
+    }
+
+    .girl .arm {
+      left: 50px;
+      transform: translateX(0);
+      animation: girlArmMove 2s forwards;
+    }
+
+    @keyframes boyArmMove {
+      to {
+        transform: translateX(-45px);
+      }
+    }
+
+    @keyframes girlArmMove {
+      to {
+        transform: translateX(45px);
+      }
+    }
+
+    .heart {
+      width: 50px;
+      height: 45px;
+      background: red;
+      position: absolute;
+      top: 50px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-45deg) scale(1);
+      animation: heartbeat 1s infinite ease-in-out;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      width: 50px;
+      height: 45px;
+      background: red;
+      position: absolute;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -25px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: 25px;
+      top: 0;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: translateX(-50%) rotate(-45deg) scale(1);
+      }
+      50% {
+        transform: translateX(-50%) rotate(-45deg) scale(1.2);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="scene">
+    <div class="name anuja">Anuja</div>
+    <div class="name pratik">Pratik</div>
+
+    <div class="person girl">
+      <div class="arm"></div>
+    </div>
+    <div class="person boy">
+      <div class="arm"></div>
+    </div>
+    <div class="heart"></div>
+  </div>
+</body>
+</html>
